@@ -1,0 +1,140 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+body {
+    border: 2px dashed;
+    background: linear-gradient(50deg, rgb(150, 108, 227), rgb(114, 151, 225));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.c {
+    display: flex;
+    min-height: 100vh;
+    background: linear-gradient(50deg, rgb(150, 108, 227), rgb(114, 151, 225));
+}
+.main {
+    background-color:aliceblue;
+    background-size: cover;
+    padding: 255px 370px;
+    border-radius: 20px;
+    box-shadow:  20px rgba(0, 0, 0, 0.881);
+    margin: 5px;
+}
+
+.r{
+    color: aliceblue;
+}
+.sidebar {
+    width: 200px;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+.sidebar h1 {
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 50px;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color:#e6cccc7e;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    min-width: 500px;
+    margin-bottom: -25%;
+    margin-top: -25%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.b {
+    text-align: center;
+    color: rgb(94, 93, 93);
+}
+
+.question-box {
+    margin-bottom: 10px;
+}
+
+.question-box h2 {
+    margin-bottom: 10px;
+}
+
+.options label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(150, 108, 227);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit-btn:hover {
+    background-color: rgb(150, 108, 227);
+}
+
+.final-plan {
+    display: none;
+    margin-top: 20px;
+    background-color:  rgb(136, 171, 199);;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+.final-plan h2 {
+    margin-bottom: 20px;
+}
+.z{
+    background-color: #aa89f2;
+    border-color:#aa89f2 ;
+    position: fixed;
+    right: 20px;
+    top: 2%;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50px;
+    
+}

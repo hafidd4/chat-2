@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat Web</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <form action="2.html">
+    <div class="container">
+      <aside class="sidebar">
+        <h1 style="font-family: 'Courier New';" class="a">Chat WEB</h1>
+        <hr>
+        <ul>
+          <li><a href="threads.html">Threads</a></li>
+          <li><a href="listings.html">Listings</a></li>
+          <li><a href="pricing1.html">Pricing1</a></li>
+          <li><a href="pricing2.html">Pricing2</a></li>
+          <li><a href="pricing3.html">Pricing3</a></li>
+          <li><a href="about.html">About us</a></li>
+        </ul>
+      </aside>
+      
+      <main class="main">
+        <button class="a" style="background-color: #aa89f2; border-color: #aa89f2; color: white; position: absolute; right: 20px; top: 2%; padding: 10px 15px; font-size: 16px; border-radius: 50px;">+ New account</button>
+        <div class="section chat">
+          <input type="text" class="user" placeholder="Type your message here...">
+          <button style="color: azure;" class="send">Send</button>
+        </div>
+
+        <div style="display: flex; justify-content: space-between;">
+          <div class="preferences">
+            <h3 style="color: black;">Response Personalization</h3>
+            <label for="tone" style="color: rgb(98, 93, 93);">Tone:</label>
+            <select id="tone">
+              <option value="formal">Formal</option>
+              <option value="informal">Informal</option>
+            </select>
+
+            <label for="detail" style="color: rgb(98, 93, 93);">Detail Level:</label>
+            <select id="detail">
+              <option value="concise">Concise</option>
+              <option value="detailed">Detailed</option>
+            </select>
+
+            <label for="language" style="color: rgb(98, 93, 93);">Language:</label>
+            <select id="language">
+              <option value="fr">French</option>
+              <option value="en">English</option>
+            </select>
+          </div>
+
+          <div class="multimedia-response">
+            <h3 style="color:black;">Get Multimedia Responses</h3>
+            <button id="get-audio" class="btn">Get Audio Response</button>
+            <button id="get-image" class="btn">Get Image</button>
+          </div>
+        </div>
+
+        <div class="group-chat">
+          <h3 style="color:black;">Group Chat</h3>
+          <textarea id="group-message" placeholder="Enter your group message here..."></textarea>
+          <button id="send-group" class="btn">Send to Group</button>
+          <div id="group-chat-window"></div>
+        </div>
+      </main>
+    </div>
+  </form>
+
+  <script>
+    const userId = 'uniqueUserId'; 
+
+    async function savePreferences() {
+      const preferences = {
+        userId: userId,
+        tone: document.getElementById("tone").value,
+        detail: document.getElementById("detail").value,
+        language: document.getElementById("language").value
+      };
+
+      try {
+        const response = await fetch('http://localhost:3000/preferences', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(preferences)
+        });
+        const result = await response.json();
+        console.log('Preferences saved:', result);
+      } catch (err) {
+        console.error('Error saving preferences:', err);
+      }
+    }
+
+    window.onload = async function() {
+      try {
+        const response = await fetch(`http://localhost:3000/preferences/${userId}`);
+        const preferences = await response.json();
+        if (preferences) {
+          document.getElementById("tone").value = preferences.tone;
+          document.getElementById("detail").value = preferences.detail;
+          document.getElementById("language").value = preferences.language;
+        }
+      } catch (err) {
+        console.error('Error loading preferences:', err);
+      }
+    };
+
+    document.getElementById("send-group").addEventListener("click", function() {
+      const message = document.getElementById("group-message").value;
+      if (message.trim() !== "") {
+        document.getElementById("group-chat-window").innerHTML += `<p>${message}</p>`;
+        document.getElementById("group-message").value = ''; 
+      }
+    });
+
+    document.getElementById("get-audio").addEventListener("click", function() {
+      alert('Audio response obtained (functionality to be implemented)');
+    });
+
+    document.getElementById("get-image").addEventListener("click", function() {
+      alert('Generated image obtained (functionality to be implemented)');
+    });
+  </script>
+</body>
+</html>

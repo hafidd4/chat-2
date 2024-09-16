@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+ <title>Pricing Interactive</title>
+ <link rel="stylesheet" href="styles5.css">
+</head>
+<body>
+  <form>
+    <div class="c">
+      <aside class="sidebar">
+        <h1 style="font-family: 'Courier New';" class="a">chat WEB</h1>
+        <hr>
+        <ul>
+          <li><a href="threads.html">Threads</a></li>
+          <li><a href="listings.html">Listings</a></li>
+          <li><a href="pricing1.html">Pricing1</a></li>
+          <li><a href="pricing2.html">Pricing2</a></li>
+          <li><a href="pricing3.html">Pricing3</a></li>
+          <li><a href="about.html">About us</a></li>
+        </ul>
+      </aside>
+      
+      <div>
+        <main class="main"> 
+          <button class="z">+ New account</button>
+          <div class="container">
+            <h1 class="b">Choose Your Custom Plan</h1>
+            <p>Answer a few questions to find the plan that suits you best.</p>
+
+            <div id="step1" class="step active">
+              <h2 style="color: black;">How do you plan to use our service?</h2>
+              <button type="button" class="option" data-price="20" onclick="nextStep(1, 20)">Personal use</button>
+              <button type="button" class="option" data-price="40" onclick="nextStep(1, 40)">Professional assistance</button>
+              <button type="button" class="option" data-price="60" onclick="nextStep(1, 60)">Project management</button>
+            </div>
+
+            <div id="step2" class="step">
+              <h2 style="color: black;">How often will you use it?</h2>
+              <button type="button" class="option" data-price="10" onclick="nextStep(2, 10)">Daily</button>
+              <button type="button" class="option" data-price="5" onclick="nextStep(2, 5)">Weekly</button>
+              <button type="button" class="option" data-price="2" onclick="nextStep(2, 2)">Occasionally</button>
+            </div>
+
+            <div id="step3" class="step">
+              <h2 style="color: black;">Do you need advanced technical support?</h2>
+              <button type="button" class="option" data-price="30" onclick="showTotal(30)">Yes, dedicated support</button>
+              <button type="button" class="option" data-price="10" onclick="showTotal(10)">No, standard support</button>
+            </div>
+
+            <div id="totalPrice" class="total">
+              <h2 style="color: black;">Your Customized Offer:</h2>
+              <p id="priceDisplay"></p>
+              <button type="button" class="cta-button">Get Started Now</button>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </form>
+  <script>
+    let currentStep = 1;
+    let totalPrice = 0;
+
+    function nextStep(step, price) {
+        totalPrice += price;
+
+        document.getElementById(`step${step}`).classList.remove('active');
+        document.getElementById(`step${step + 1}`).classList.add('active');
+    }
+
+    function showTotal(price) {
+        totalPrice += price;
+
+        document.getElementById('step3').classList.remove('active');
+        document.getElementById('totalPrice').classList.add('active');
+
+        document.getElementById('priceDisplay').innerText = `Total: ${totalPrice}€/month`;
+    }
+  </script>
+</body>
+</html>

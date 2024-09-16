@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+ <title>Plan Selector</title>
+ <link rel="stylesheet" href="styles4.css">
+</head>
+<body>
+  <form>
+    <div class="c">
+      <aside class="sidebar">
+        <h1 style="font-family: 'Courier New';" class="r">chat WEB</h1>
+        <hr>
+        <ul>
+          
+          <li><a href="threads.html">Threads</a></li>
+          <li><a href="listings.html">Listings</a></li>
+          <li><a href="pricing1.html">Pricing1</a></li>
+          <li><a href="pricing2.html">Pricing2</a></li>
+          <li><a href="pricing3.html">Pricing3</a></li>
+          <li><a href="about.html">About us</a></li>
+
+        </ul>
+      </aside>
+      
+      <main class="main"> 
+        <button class="z">+ New account</button>
+        <div class="container">
+            <h1 class="b">Find Your Perfect Plan</h1>
+        
+            <div class="question-box">
+                <h2 style="color: rgb(136, 171, 199);">What will you use our service for?</h2>
+                <div class="options">
+                    <label style="color: black;"><input type="radio" name="purpose" value="personal"> Personal</label>
+                    <label style="color: black;"><input type="radio" name="purpose" value="business"> Business</label>
+                    <label style="color: black;"><input type="radio" name="purpose" value="enterprise"> Enterprise</label>
+                </div>
+            </div>
+        
+            <div class="question-box">
+                <h2 style="color: rgb(136, 171, 199);">How much storage do you need?</h2>
+                <div class="options">
+                    <label style="color: black;"><input type="radio" name="storage" value="small"> Less than 10 GB</label>
+                    <label style="color: black;"><input type="radio" name="storage" value="medium"> 10 - 100 GB</label>
+                    <label style="color: black;"><input type="radio" name="storage" value="large"> More than 100 GB</label>
+                </div>
+            </div>
+        
+            <div class="question-box">
+                <h2 style="color: rgb(136, 171, 199);">What level of support do you need?</h2>
+                <div class="options">
+                    <label style="color: black;"><input type="radio" name="support" value="basic"> Basic Support</label>
+                    <label style="color: black;"><input type="radio" name="support" value="priority"> Priority Support</label>
+                    <label style="color: black;"><input type="radio" name="support" value="premium"> 24/7 Premium Support</label>
+                </div>
+            </div>
+        
+            <button class="submit-btn">Submit</button>
+        
+            <div class="final-plan" style="display: none;">
+                <h2 style="color: black;"> Your Recommended Plan</h2>
+                <p id="plan-name" style="color: black;"></p>
+                <p id="plan-description" style="color: black;"></p>
+                <p id="plan-price" style="color: black;"></p>
+            </div>
+        </div>
+      </main>
+    </div>
+  </form>
+
+  <script>
+    
+    function getSelectedValue(name) {
+        const options = document.querySelector(`input[name="${name}"]:checked`);
+        return options ? options.value : null;
+    }
+
+   
+    function definePlan() {
+        const purpose = getSelectedValue('purpose');
+        const storage = getSelectedValue('storage');
+        const support = getSelectedValue('support');
+
+        if (!purpose || !storage || !support) {
+            alert('Please answer all the questions.');
+            return;
+        }
+
+        let selectedPlan = {
+            name: '',
+            description: '',
+            price: ''
+        };
+
+       
+        if (purpose === 'personal') {
+            if (storage === 'small') {
+                selectedPlan = {
+                    name: 'Basic Plan',
+                    description: 'Ideal for personal use with small storage.',
+                    price: '$9/month'
+                };
+            } else if (storage === 'medium') {
+                selectedPlan = {
+                    name: 'Standard Plan',
+                    description: 'For personal use with moderate storage.',
+                    price: '$19/month'
+                };
+            } else if (storage === 'large') {
+                selectedPlan = {
+                    name: 'Pro Plan',
+                    description: 'Personal use with large storage and premium support.',
+                    price: '$29/month'
+                };
+            }
+        } else if (purpose === 'business') {
+            if (storage === 'small') {
+                selectedPlan = {
+                    name: 'Business Starter',
+                    description: 'For small businesses with basic storage.',
+                    price: '$39/month'
+                };
+            } else if (storage === 'medium') {
+                selectedPlan = {
+                    name: 'Business Plus',
+                    description: 'For businesses with moderate storage.',
+                    price: '$59/month'
+                };
+            } else if (storage === 'large') {
+                selectedPlan = {
+                    name: 'Business Pro',
+                    description: 'Large storage and priority support for businesses.',
+                    price: '$99/month'
+                };
+            }
+        } else if (purpose === 'enterprise') {
+            if (storage === 'small') {
+                selectedPlan = {
+                    name: 'Enterprise Lite',
+                    description: 'For enterprise with small storage and basic support.',
+                    price: '$199/month'
+                };
+            } else if (storage === 'medium') {
+                selectedPlan = {
+                    name: 'Enterprise Pro',
+                    description: 'Moderate storage and priority support for enterprises.',
+                    price: '$299/month'
+                };
+            } else if (storage === 'large') {
+                selectedPlan = {
+                    name: 'Enterprise Ultimate',
+                    description: 'Unlimited storage with premium support for large enterprises.',
+                    price: '$499/month'
+                };
+            }
+        }
+
+        
+        document.getElementById('plan-name').textContent = selectedPlan.name;
+        document.getElementById('plan-description').textContent = selectedPlan.description;
+        document.getElementById('plan-price').textContent = selectedPlan.price;
+
+        document.querySelector('.final-plan').style.display = 'block';
+    }
+
+    
+    document.querySelector('.submit-btn').addEventListener('click', function(event) {
+        event.preventDefault(); 
+        definePlan(); 
+    });
+  </script>
+</body>
+</html>

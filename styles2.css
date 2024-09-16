@@ -1,0 +1,138 @@
+body {
+    border: 2px dashed;
+    background: linear-gradient(50deg, rgb(150, 108, 227), rgb(114, 151, 225));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+.c{
+    color: aliceblue;
+}
+.sidebar {
+    width: 200px;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+.sidebar h1 {
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 50px;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color:#e6cccc7e;
+}
+.main{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.main::before{
+    content:'';
+    background-image: url('ia.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px 610px;
+    border-radius: 20px;
+    box-shadow:  20px rgba(0, 0, 0, 0.881);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.35;
+}
+.a {
+    max-width: 800px;
+    padding: 20px;
+    color: #fff;
+
+}
+
+.z{
+    font-size: 50px;
+    margin-bottom: 40px;
+    color: #ffffff;
+    margin-left: 40%;
+    text-align: center;
+}
+
+.box-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-left: 15%;
+    width: 120%;
+
+}
+
+.box {
+    background-color: rgba(0, 0, 0, 0.7); 
+    color: white; 
+    padding: 50px;
+    border-radius: 8px;
+    width: 60%; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    position: relative; 
+    transition: transform 0.3s ease; 
+    cursor: pointer;
+    outline: none;
+    
+}
+
+.box-center {
+    display: flex;
+    justify-content: center;
+    margin-left: 40%;
+
+}
+
+.box-center .box {
+    width: 80%; 
+}
+.box:hover, .box:focus {
+    transform: translate(10px, 10px); 
+}
+.e{
+    background-color: #aa89f2;
+    border-color:#aa89f2 ;
+    position: fixed;
+    right: 20px;
+    top: 2%;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50px;
+    
+}

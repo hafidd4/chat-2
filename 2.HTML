@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Chat Web</title>
+  <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+        <h1 style="font-family: 'Courier New';" class="m">Chat WEB</h1>
+        <hr>
+        <ul>
+          <li><a href="threads.html">Threads</a></li>
+          <li><a href="listings.html">Listings</a></li>
+          <li><a href="pricing1.html">Pricing1</a></li>
+          <li><a href="pricing2.html">Pricing2</a></li>
+          <li><a href="pricing3.html">Pricing3</a></li>
+          <li><a href="about.html">About us</a></li>
+        </ul>
+      </aside>
+      
+    <button class="a">+ New account</button>
+
+    <div class="main-content">
+
+      <div class="chat">
+        <div class="message-box right">
+          <p class="message">What is HTML?</p>
+        </div>
+        <div class="message-box left">
+          <p class="message">HTML (HyperText Markup Language) is the standard language used to create web pages.</p>
+        </div>
+        <div class="message-box right">
+          <p class="message">What is CSS?</p>
+        </div>
+        <div class="message-box left">
+          <p class="message">CSS (Cascading Style Sheets) is a stylesheet language used to describe the presentation of an HTML document.</p>
+        </div>
+        <input type="text" class="user" placeholder="Type your message here...">
+        <button style="color: azure;" class="send">Send</button>
+        <a href="1.html">+ New chat</a>
+      </div>
+
+      <div class="group-chat">
+        <h3>Group Chat</h3>
+        <textarea id="group-message" placeholder="Enter your group message here..."></textarea>
+        <button id="send-group" class="send-group">Send to Group</button>
+        <div id="group-chat-window" class="group-messages"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('send-group').addEventListener('click', function() {
+      const message = document.getElementById('group-message').value;
+      if (message.trim() !== "") {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('group-message');
+        messageElement.textContent = message;
+
+        document.getElementById('group-chat-window').appendChild(messageElement);
+
+        document.getElementById('group-chat-window').scrollTop = document.getElementById('group-chat-window').scrollHeight;
+
+        document.getElementById('group-message').value = '';
+      }
+    });
+  </script>
+</body>
+</html>
